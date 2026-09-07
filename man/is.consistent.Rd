@@ -13,7 +13,7 @@ is.consistent(subsets, z)
   \item{z}{Data}    
 }
 \value{
-Returns \code{TRUE} or \code{FALSE} depending on whether z is consistent
+Returns \code{TRUE} or \code{FALSE} depending on whether \code{z} is consistent
 with subsets.
 }
 \references{
