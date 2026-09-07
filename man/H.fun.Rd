@@ -2,7 +2,7 @@
 \alias{H.fun.app}
 \title{The H matrix}
 \description{
-Returns the matrix of bases H.    The \dQuote{app} of the function name means
+Returns the matrix of bases H.  The \dQuote{app} of the function name means
 \dQuote{approximator}, to distinguish it from function \code{H.fun()}
 of the calibrator package.
 }
