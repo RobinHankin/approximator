@@ -443,11 +443,11 @@ function(level, D, z, basis, subsets, hpa.start, give.answers=FALSE,
     }
     cxxdash <-
       cxx - 
-        quad.3form(Vinv,txdash,tx) + 
-          quad.3form(
+        quad3.form(Vinv,txdash,tx) + 
+          quad3.form(
                      solve(quad.form(Vinv,H)),
-                     hxdash-quad.3form(Vinv,H,txdash),
-                     hx    -quad.3form(Vinv,H,tx    )
+                     hxdash-quad3.form(Vinv,H,txdash),
+                     hx    -quad3.form(Vinv,H,tx    )
                      )
     return(cxxdash)
   } else if (method == 2){
@@ -457,8 +457,8 @@ function(level, D, z, basis, subsets, hpa.start, give.answers=FALSE,
     U <- crossprod(Vinv,H)
     cxxdash <- 
       cxx - 
-        quad.3form(Vinv,txdash,tx) + 
-          quad.3form(
+        quad3.form(Vinv,txdash,tx) + 
+          quad3.form(
                      solve(crossprod(H,U)),
                      hxdash - crossprod(U,txdash),
                      hx - crossprod(U,tx)

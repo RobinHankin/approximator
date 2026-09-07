@@ -1,10 +1,15 @@
 Package: approximator
 Type: Package
 Title: Bayesian Prediction of Complex Computer Codes
-Version: 1.2-8
-Author: Robin K. S. Hankin
+Version: 1.3-0
 Depends: R (>= 2.0.0), emulator (>= 1.2-11)
-Imports: mvtnorm
+Imports: mvtnorm, quadform
+Authors@R: person(
+	   given=c("Robin", "K. S."),
+	   family="Hankin",
+	   role = c("aut","cre"),
+	   email="hankin.robin@gmail.com",
+	   comment = c(ORCID = "0000-0001-5982-0415"))
 Maintainer: Robin K. S. Hankin <hankin.robin@gmail.com>
 Description: Performs Bayesian prediction of complex computer codes when fast approximations are available.  It uses a hierarchical version of the Gaussian process, originally proposed by Kennedy and O'Hagan (2000), Biometrika 87(1):1.
 License: GPL-2

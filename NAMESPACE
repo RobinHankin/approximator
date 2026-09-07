@@ -2,4 +2,5 @@ exportPattern("^[^\\.]")
 
 importFrom("stats", "optim", "rbinom")
 importFrom("mvtnorm", "rmvnorm")
-importFrom("emulator", "quad.3form", "quad.form", "corr.matrix","quad.form.inv")
+importFrom("emulator", "corr.matrix")
+importFrom("quadform", "quad3.form", "quad.form", "quad.form.inv")
