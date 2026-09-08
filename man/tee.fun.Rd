@@ -3,7 +3,7 @@
 \title{Returns generalized distances}
 \description{
 Returns generalized distances from a point to the design matrix as per
-equation 10
+equation 10 of KOH2000
 }
 \usage{
 tee.fun(x, D1, subsets, hpa)
