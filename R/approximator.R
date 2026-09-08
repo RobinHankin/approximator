@@ -1,5 +1,3 @@
-require(emulator)
-
 "Afun" <-
 function (level, Di, Dj, hpa) 
 {
