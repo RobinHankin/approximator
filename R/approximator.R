@@ -30,6 +30,7 @@ function (D1, subsets, basis, hpa)
     colnames(out) <- jj
     return(out)
 }
+
 "Pi" <-
 function (hpa, i, j) 
 {
@@ -93,8 +94,6 @@ function (x)
     }
 }
 
-
-
 "betahat.app" <-
 function(D1, subsets, basis, hpa, z, use.Vinv=TRUE)
 {
@@ -153,7 +152,6 @@ function (D1, subsets, basis.fun, hpa = NULL, betas = NULL, export.truth=FALSE)
                     )
                )
       }
-
 
     sigma_squareds <- hpa$sigma_squareds
     B <- hpa$B
@@ -377,7 +375,6 @@ function(D, z, basis, subsets, hpa.start, give.answers=FALSE, ...)
     }
   }
     
-
 #opt1(D=D1.toy,z=z.toy,basis=basis.toy,subsets=subsets.toy, hpa.start=hpa.toy,control=list(maxit=1))
 
 "opt.gt.1" <-
@@ -427,13 +424,13 @@ function(level, D, z, basis, subsets, hpa.start, give.answers=FALSE,
     V <- V.fun.app(D1=D1,subsets=subsets,hpa=hpa)
   }
 
-  tx <- tee.fun(x,D1=D1,subsets=subsets,hpa=hpa)
-  txdash <- tee.fun(xdash,D1=D1,subsets=subsets,hpa=hpa)
-  hx <- hdash.fun(x=x,hpa=hpa,basis=basis)
-  hxdash <- hdash.fun(x=xdash,hpa=hpa,basis=basis)
-  H <- H.fun.app(D1=D1,subsets=subsets,basis=basis,hpa=hpa)
+  tx <- tee.fun(x, D1=D1, subsets=subsets, hpa=hpa)
+  txdash <- tee.fun(xdash, D1=D1, subsets=subsets, hpa=hpa)
+  hx <- hdash.fun(x=x, hpa=hpa, basis=basis)
+  hxdash <- hdash.fun(x=xdash, hpa=hpa, basis=basis)
+  H <- H.fun.app(D1=D1, subsets=subsets, basis=basis, hpa=hpa)
 
-  cxx <- c_fun(x=x,xdash=xdash,subsets=subsets,hpa=hpa) 
+  cxx <- c_fun(x=x, xdash=xdash, subsets=subsets, hpa=hpa) 
 
   if(method == 1){
     if(is.null(Vinv)){
@@ -441,32 +438,32 @@ function(level, D, z, basis, subsets, hpa.start, give.answers=FALSE,
     }
     cxxdash <-
       cxx - 
-        quad3.form(Vinv,txdash,tx) + 
+        quad3.form(Vinv, txdash, tx) + 
           quad3.form(
-                     solve(quad.form(Vinv,H)),
-                     hxdash-quad3.form(Vinv,H,txdash),
-                     hx    -quad3.form(Vinv,H,tx    )
+                     solve(quad.form(Vinv, H)),
+                     hxdash-quad3.form(Vinv, H, txdash),
+                     hx    -quad3.form(Vinv, H, tx    )
                      )
     return(cxxdash)
   } else if (method == 2){
     if(is.null(Vinv)){
       Vinv <- solve(V)
     }
-    U <- crossprod(Vinv,H)
+    U <- crossprod(Vinv, H)
     cxxdash <- 
       cxx - 
-        quad3.form(Vinv,txdash,tx) + 
+        quad3.form(Vinv, txdash, tx) + 
           quad3.form(
-                     solve(crossprod(H,U)),
-                     hxdash - crossprod(U,txdash),
-                     hx - crossprod(U,tx)
+                     solve(crossprod(H, U)),
+                     hxdash - crossprod(U, txdash),
+                     hx - crossprod(U, tx)
                      )
   } else if (method == 3){  # no matrix inversion
-    U <- crossprod(V,H)
-    Y <- solve(V,H)
+    U <- crossprod(V, H)
+    Y <- solve(V, H)
     cxxdash <- 
       cxx -
-        crossprod(txdash,solve(V,tx)) +
+        crossprod(txdash, solve(V,tx)) +
           crossprod(
           solve(crossprod(H,Y), hxdash - crossprod(Y,txdash)),
                         hx - crossprod(Y,tx)
