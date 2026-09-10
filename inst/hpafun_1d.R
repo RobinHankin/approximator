@@ -1,7 +1,6 @@
 # This file creates a hyperparameter object.
 # It is designed to be called by file apprex_1d.R
 
-
 "hpa.fun.1d" <-
 function (x) 
 {

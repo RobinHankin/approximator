@@ -15,8 +15,6 @@ set.seed(0)
 # First a design matrix:
 D1.1d <- matrix(1:6)
 
-
-
 # And a subsets object
 source("subsets_1d.R")
 
@@ -45,8 +43,6 @@ z.1d <- generate.1d.observations(D1=D1.1d, subsets=subsets.1d, basis.fun=basis.1
 # Now some checks.  First, look at H:
 jj.H <- H.fun.app(D1=D1.1d, subsets=subsets.1d , basis=basis.1d , hpa=hpa.1d)
 #  Look at jj.H and verify that it is right.
-
-
 
 
 # Now optimize the hyperparameters:
