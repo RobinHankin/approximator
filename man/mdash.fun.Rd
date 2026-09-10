@@ -32,10 +32,10 @@ mdash.fun(x, D1, subsets, hpa, Vinv = NULL, use.Vinv = TRUE, z, basis)
 data(toyapps)
 mdash.fun(x=1:3,D1=D1.toy,subsets=subsets.toy,hpa=hpa.toy,z=z.toy,basis=basis.toy)
 
-uu <- rbind(1:3,1,3:1,1:3)
-rownames(uu) <- c("first","second","third","fourth")
+uu <- rbind(1:3, 1,3:1, 1:3)
+rownames(uu) <- c("first", "second", "third", "fourth")
 
-mdash.fun(x=uu,D1=D1.toy,subsets=subsets.toy,hpa=hpa.toy,z=z.toy,basis=basis.toy)
+mdash.fun(x=uu, D1=D1.toy, subsets=subsets.toy, hpa=hpa.toy, z=z.toy, basis=basis.toy)
 
 }
 \keyword{array}
